@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="" />
+  <!-- Bootstrap Core CSS -->
+  <link href="../static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+  <link href="../static/css/bootstrap.min.css" rel="stylesheet"  />
+  <!-- Custom CSS -->
+  <link href="../static/css/style.css" rel='stylesheet' type='text/css' />
+  <!-- js-->
+  <script src="../static/js/jquery-1.9.1.min.js"></script>
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script src="../static/js/script.js"></script>
+</head>
+
+<body class="glzx two-sidebars">
+<header class="navbar navbar-static-top bs-docs-nav" id="top" >
+  <div class="container-fluid clearfix" >
+
+    <nav id="bs-navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a href="" style="display: inline-block; text-align: center;  width: 200px;"><h3>设备管理系统</h3></a>
+
+        </li>
+      </ul>
+        <ul class="nav navbar-nav">
+        <li class="active">
+          <a href="{{url_for('SensorNews')}}">设备信息</a>
+
+        </li>
+      </ul>
+	
+
+    </nav>
+  </div>
+</header>
+
+<div class="main-container container-fluid clearfix">
+  <div class="row">
+
+    <div class="col-md-2" >
+      <ul id="main-nav" class="nav nav-admin panel" style="background-image:url(image/4.png)">
+        <li class="active">
+		
+          <a href="#" class="first" style="display: inline-block; text-align: center;  width: 200px;">
+		  
+		  设备管理情况</a>
+        </li>
+
+          <li>
+          <a href="#">
+		  <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>设备借入借出</a>
+        </li>
+
+
+      </ul>
+    </div>
+    <div class="col-md-10">
+      <div class="panel admin-content">
+        <div >
+			 <form class="navbar-form navbar-left" role="search">
+
+{#				<div class="input-group">#}
+{#					<div class="input-group-addon">#}
+{#						<span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>#}
+{#					</div>#}
+{#					<input type="text" class="form-control" placeholder="设备名称">#}
+{#				</div>#}
+
+{#				  <input type="submit" class="btn btn-success btn-xs  " style =" margin:30px " value="查询">#}
+{#				  <input type="submit" class="btn  btn btn-primary btn-xs   " value="+添加信息">#}
+{#				#}
+			</form>
+		</div>
+        <div class="admin-table ">
+          <table class="table  table-hover table-condensed table-bordered ">
+            <thead>
+              <tr>
+                <th>设备名称</th>
+                <th>设备当前状态</th>
+                <th>时间</th>
+                <th>操作人员</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for sensors in paginate.items %}
+              <tr class="active">
+                <td>{{ sensors.SensorName }}</td>
+                <td>{{ sensors.SensorOP }}</td>
+                <td>{{ sensors.SensorTime }}</td>
+				<td>管理员</td>
+              </tr>
+            {% endfor %}
+
+            </tbody>
+          </table>
+        </div>
+        <div class="page-pager">
+          <ul class="pagination">
+            {% import 'macro.html' as macro %}
+        {{macro.pagination_widget(paginate, '.SensorHistory')}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>

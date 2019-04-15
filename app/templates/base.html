@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+ {% extends "bootstrap/base.html" %}
+
+<html>
+{% block body %}
+{% block navbar %}
+<head>
+  <title>Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="" />
+  <!-- Bootstrap Core CSS -->
+  <link href="../static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+  <!-- Custom CSS -->
+  <link href="../static/css/style.css" rel='stylesheet' type='text/css' />
+  <!-- js-->
+  <script src="../static/js/jquery-1.9.1.min.js"></script>
+  <script src="../static/js/bootstrap.min.js"></script>
+</head>
+
+<body class="register">
+<header class="navbar navbar-static-top bs-docs-nav" id="top">
+  <div class="container clearfix">
+
+  </div>
+</header>
+</body>
+{% endblock %}
+
+{% block content %}
+    <div class="main-container container clearfix">
+    <div class="page-header">
+        <!--这里自定义一个块-->
+        {% block page_content %}
+            这里是默认内容
+        {% endblock %}
+      </div>
+    </div>
+  {% endblock %}
+
+<footer class="footer">
+
+</footer>
+{% endblock %}
+
+</html>
